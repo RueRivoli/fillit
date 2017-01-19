@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:15:21 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/19 16:19:49 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/19 17:52:33 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int		create_chaine(t_tetris **list, char *str)
 {
-	static int i = 0;
-	static int j = 0;
+	static int	i = 0;
+	static int	j = 1;
 
-	if (str[0] == '\n')
+	if (str[0] == 0)
 	{
 		if (i != 0 || j != 0)
 			return (_ERROR_);
@@ -26,8 +26,10 @@ static int		create_chaine(t_tetris **list, char *str)
 	}
 	else
 	{
+		if (i == 0 && j == 0)
+			return (_ERROR_);
 		j = 0;
-		(*list)->form[i++] = str;
+		ft_strncpy((*list)->form[i++], str, 4);
 		if (i == 4)
 		{
 			i = 0;
@@ -47,7 +49,7 @@ static int		get_tetriminos(t_fillit *f, char *path)
 
 	if ((fd = open(path, O_RDONLY)) == -1)
 		return (_ERROR_);
-	f->tetri = ft_memalloc(sizeof(t_tetris *));
+	f->tetri = ft_memalloc(sizeof(t_tetris));
 	list = f->tetri;
 	while (get_next_line(fd, &str))
 	{
@@ -57,16 +59,24 @@ static int		get_tetriminos(t_fillit *f, char *path)
 	return (_SUCCESS_);
 }
 
+int		check_tetriminos(t_tetris *tetri)
+{
+	(void)tetri;
+	return (1);
+}
 
 int				main(int argc, char **argv)
 {
+	t_fillit f;
+
 	if (argc != 2)
 		ft_putstr("usage :\t./fillit [-V --Visual] [source_file].fillit\n");
 	else
 	{
 		if (get_tetriminos(&f, argv[1]) == _ERROR_)
 			ft_putstr("Error\n");
-		if (check_tetriminos == _ERROR_)
+
+		if (check_tetriminos(f.tetri) == _ERROR_)
 			ft_putstr("Error\n");
 	}
 

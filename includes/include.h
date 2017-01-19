@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/19 14:58:46 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/19 17:21:22 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 # include "get_next_line.h"
 # include <fcntl.h>
 
+#   include "debug.h"
+
 typedef struct	s_tetris
 {
-	char				*form[4];
+	char				form[4][4];
 	struct s_tetris		*next;
 }				t_tetris;
 
