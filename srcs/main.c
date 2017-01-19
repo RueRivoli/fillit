@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:15:21 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/19 17:52:33 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/19 18:21:26 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,17 @@ static int		create_chaine(t_tetris **list, char *str)
 	{
 		if (i == 0 && j == 0)
 			return (_ERROR_);
+		if (i == 0 && j == 1)
+		{
+			(*list)->next = ft_memalloc(sizeof(t_tetris));
+			(*list) = (*list)->next;
+			(*list)->next = NULL;
+		}
 		j = 0;
 		ft_strncpy((*list)->form[i++], str, 4);
 		if (i == 4)
 		{
 			i = 0;
-			(*list)->next = ft_memalloc(sizeof(t_tetris));
-			(*list) = (*list)->next;
-			(*list)->next = NULL;
 		}
 	}
 	return (_SUCCESS_);
@@ -49,8 +52,8 @@ static int		get_tetriminos(t_fillit *f, char *path)
 
 	if ((fd = open(path, O_RDONLY)) == -1)
 		return (_ERROR_);
-	f->tetri = ft_memalloc(sizeof(t_tetris));
-	list = f->tetri;
+//	f->tetri = ft_memalloc(sizeof(t_tetris));
+//	list = f->tetri;
 	while (get_next_line(fd, &str))
 	{
 		if (create_chaine(&list, str) == _ERROR_)
@@ -65,6 +68,31 @@ int		check_tetriminos(t_tetris *tetri)
 	return (1);
 }
 
+void	display_list(t_tetris *list)
+{
+	int i;
+	int j;
+	
+	i = 0;
+	j = 0;
+	while (list)
+	{
+		while (j < 4)
+		{
+			i = 0;
+			while (i < 4)
+			{
+				ft_putchar(list->form[j][i++]);
+			}
+			ft_putchar('\n');
+			j++;
+		}
+		j = 0;
+		ft_putchar('\n');
+		list = list->next;
+	}
+}
+
 int				main(int argc, char **argv)
 {
 	t_fillit f;
@@ -75,7 +103,7 @@ int				main(int argc, char **argv)
 	{
 		if (get_tetriminos(&f, argv[1]) == _ERROR_)
 			ft_putstr("Error\n");
-
+		display_list(f.tetri);
 		if (check_tetriminos(f.tetri) == _ERROR_)
 			ft_putstr("Error\n");
 	}
