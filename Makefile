@@ -6,17 +6,13 @@
 #    By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 12:41:58 by cchameyr          #+#    #+#              #
-#    Updated: 2017/01/12 18:51:49 by cchameyr         ###   ########.fr        #
+#    Updated: 2017/01/19 12:14:31 by cchameyr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =			ft_ls
+NAME =			fillit
 
 FILES =			main.c \
-				exit.c \
-				tools.c \
-				display.c \
-				listent.c
 
 SRCS =			$(addprefix srcs/, $(FILES))
 
