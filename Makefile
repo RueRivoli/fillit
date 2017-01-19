@@ -6,13 +6,14 @@
 #    By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 12:41:58 by cchameyr          #+#    #+#              #
-#    Updated: 2017/01/19 12:14:31 by cchameyr         ###   ########.fr        #
+#    Updated: 2017/01/19 13:31:46 by cchameyr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =			fillit
 
 FILES =			main.c \
+				get_next_line.c
 
 SRCS =			$(addprefix srcs/, $(FILES))
 

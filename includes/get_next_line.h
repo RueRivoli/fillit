@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/19 13:32:03 by cchameyr         ###   ########.fr       */
+/*   Created: 2015/12/18 14:44:27 by cchameyr          #+#    #+#             */
+/*   Updated: 2017/01/19 13:32:29 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _INCLUDE_H
-# define _INCLUDE_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include "../libft/libft.h"
-# include "get_next_line.h"
 # include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include "../libft/libft.h"
 
-typedef struct	s_tetris
+# define BUFF_SIZE 1
+
+typedef struct	s_gnl
 {
-	char				*form[4];
-	struct s_tetris		*next;
-}				t_tetris;
+	char		*buff;
+	char		*temp;
+	int			ret;
+}				t_gnl;
 
-typedef struct	s_fillit
-{
-	t_tetris	*tetri;
-}				t_fillit;
-
-
+int				get_next_line(const int fd, char **line);
 
 #endif

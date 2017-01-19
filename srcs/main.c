@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:15:21 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/19 13:24:36 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/01/19 13:32:57 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int				main(int argc, char **argv)
 			ft_putstr("Error\n");
 	}
 
+	(void)f;
 	(void)argc;
 	(void)argv;
 	return (0);
