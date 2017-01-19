@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:15:21 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/19 14:58:43 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/19 16:19:49 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ static int		create_chaine(t_tetris **list, char *str)
 	static int i = 0;
 	static int j = 0;
 
-		if (str[0] == '\n')
-		{
-			if (i != 0 || j != 0)
-				return (_ERROR_);
-			else
-				j = j + 1;
-		}
+	if (str[0] == '\n')
+	{
+		if (i != 0 || j != 0)
+			return (_ERROR_);
 		else
+			j = j + 1;
+	}
+	else
+	{
+		j = 0;
+		(*list)->form[i++] = str;
+		if (i == 4)
 		{
-			j = 0;
-			(*list)->form[i++] = str;
-			if (i == 4)
-			{
-				i = 0;
-				(*list)->next = ft_memalloc(sizeof(t_tetris));
-				(*list) = (*list)->next;
-				(*list)->next = NULL;
-			}
+			i = 0;
+			(*list)->next = ft_memalloc(sizeof(t_tetris));
+			(*list) = (*list)->next;
+			(*list)->next = NULL;
 		}
+	}
 	return (_SUCCESS_);
 }
 
@@ -65,6 +65,8 @@ int				main(int argc, char **argv)
 	else
 	{
 		if (get_tetriminos(&f, argv[1]) == _ERROR_)
+			ft_putstr("Error\n");
+		if (check_tetriminos == _ERROR_)
 			ft_putstr("Error\n");
 	}
 
