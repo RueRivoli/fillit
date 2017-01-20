@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/19 17:21:22 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/20 12:27:40 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ typedef struct	s_fillit
 	t_tetris	*tetri;
 }				t_fillit;
 
+int		get_tetriminos(t_fillit *f, char *path);
 
+void	display_list(t_tetris *list);
+
+int		check_tetriminos(t_tetris *tetri);
 
 #endif
