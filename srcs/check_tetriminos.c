@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:26:45 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/23 17:43:36 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/23 18:04:03 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static int	check_valid_char(t_tetris *tetri)
 	int		y;
 	int		nb_sharp;
 
-	y = -1;
 	while (tetri)
 	{
 		nb_sharp = 0;
+		y = -1;
 		while (++y < 4)
 		{
 			x = -1;
@@ -48,15 +48,16 @@ static int	check_link(int lines[4], int column[4])
 	int cpt;
 
 	cpt = 0;
-	i = 0;
-	j = 0;
-	while (i < 4)
+	i = -1;
+	while (++i < 4)
 	{
-		j = 0;
-		while (j < 4)
+		j = -1;
+		while (++j < 4)
 		{
-			if ((i != j) && ((lines[i] == lines[j] && ft_abs(column[i] - column[j]) == 1)
-				|| (column[i] == column[j] && ft_abs(lines[i] - lines[j]))))
+			if ((i != j) && ((lines[i] == lines[j] &&
+						ft_abs(column[i] - column[j]) == 1) ||
+						(column[i] == column[j] &&
+						 ft_abs(lines[i] - lines[j]) == 1)))
 				cpt++;
 		}
 	}
