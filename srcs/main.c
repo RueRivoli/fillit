@@ -5,7 +5,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:15:21 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/20 14:26:43 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/23 13:00:07 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,5 @@ int				main(int argc, char **argv)
 		if (check_tetriminos(f.tetri) == _ERROR_)
 			ft_putstr("Error\n");
 	}
-
-	(void)f;
-	(void)argc;
-	(void)argv;
 	return (0);
 }
