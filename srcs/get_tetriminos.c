@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/23 13:13:51 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/23 13:17:00 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_tetris	*last_maillon(t_tetris **begin)
 	}
 	else
 	{
-		while (list->next)// list = list->next
+		while (list->next)
 			list = list->next;
 		list->next = ft_memalloc(sizeof(t_tetris));
 		list = list->next;
@@ -40,7 +40,6 @@ static int		create_chaine(t_tetris **begin, char *str)
 	static t_tetris	*list;
 	static int	i = 0;
 	static int	j = 1;
-	
 
 	if (str[0] == 0)
 	{
@@ -79,9 +78,6 @@ int				get_tetriminos(t_fillit *f, char *path)
 	if ((fd = open(path, O_RDONLY)) == -1)
 		return (_ERROR_);
 	f->tetri = NULL;
-	f->tetri = ft_memalloc(sizeof(t_tetris));
-	if (f->tetri== NULL)
-		exit(0);
 	while (get_next_line(fd, &str))
 	{
 		if (create_chaine(&f->tetri, str) == _ERROR_)
