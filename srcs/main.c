@@ -21,7 +21,7 @@ int				main(int argc, char **argv)
 	{
 		if (get_tetriminos(&f, argv[1]) == _ERROR_)
 			ft_putstr("Error\n");
-		display_list(f.tetri);
+//		display_list(f.tetri);
 		if (check_tetriminos(f.tetri) == _ERROR_)
 			ft_putstr("Error\n");
 	}

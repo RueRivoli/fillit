@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/23 13:17:00 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/23 14:14:31 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,7 @@ static int		create_chaine(t_tetris **begin, char *str)
 			return (_ERROR_);
 		if (i == 0 && j == 1)
 				list = last_maillon(begin);
-		{
 			list = last_maillon(begin);
-			// faire une fonction qui prend l'adresse de fillit->tetri (begin)
-			// Si arrivé dans la fonction, begin vaut NULL -> le malloc;
-			// Si arrivé dans la fonction, begin n'est pas NULL -> aller a la fin, et malloc le dernier maillon
-			// La fonction retourne le dernier maillon.
-			//
-		}
 		j = 0;
 		ft_strncpy(list->form[i++], str, 4);
 		if (i == 4)
@@ -74,15 +67,23 @@ int				get_tetriminos(t_fillit *f, char *path)
 {
 	char	*str;
 	int		fd;
+	int		i;
 
 	if ((fd = open(path, O_RDONLY)) == -1)
 		return (_ERROR_);
 	f->tetri = NULL;
+	i = 0;
 	while (get_next_line(fd, &str))
 	{
 		if (create_chaine(&f->tetri, str) == _ERROR_)
 			return (_ERROR_);
+		if (i == 4)
+			i = 0;
+		else
+			i++;
 	}
+	if (i != 4)
+		return (_ERROR_);
 	return (_SUCCESS_);
 }
 
