@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/23 15:42:09 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/23 17:47:27 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_tetris	*last_maillon(t_tetris **begin)
 	if (!list)
 	{
 		*begin = ft_memalloc(sizeof(t_tetris));
-		(*begin) = ft_memalloc(sizeof(t_tetris));
 		(*begin)->next = NULL;
 		return (*begin);
 	}
@@ -54,7 +53,6 @@ static int		create_chaine(t_tetris **begin, char *str)
 			return (_ERROR_);
 		if (i == 0 && j == 1)
 				list = last_maillon(begin);
-			list = last_maillon(begin);
 		j = 0;
 		ft_strncpy(list->form[i++], str, 4);
 		if (i == 4)
@@ -75,7 +73,7 @@ int				get_tetriminos(t_fillit *f, char *path)
 	i = 0;
 	while (get_next_line(fd, &str))
 	{
-		if (ft_strlen(str) != 4)
+		if (str[0] != 0 && ft_strlen(str) != 4)
 			return (_ERROR_);
 		if (create_chaine(&f->tetri, str) == _ERROR_)
 			return (_ERROR_);
@@ -86,6 +84,7 @@ int				get_tetriminos(t_fillit *f, char *path)
 	}
 	if (i != 4)
 		return (_ERROR_);
+	display_list(f->tetri);
 	return (_SUCCESS_);
 }
 
