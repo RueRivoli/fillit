@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   square.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 13:07:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/24 13:42:47 by cchameyr         ###   ########.fr       */
+/*   Created: 2017/01/24 13:16:02 by cchameyr          #+#    #+#             */
+/*   Updated: 2017/01/24 13:40:44 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../includes/include.h"
 
-int				main(int argc, char **argv)
+static int		minsize(t_tetris *t)
 {
-	t_fillit f;
+	int		total_sharp;
+	int		size;
 
-	if (argc != 2)
-		ft_putstr("usage :\t./fillit [-V --Visual] [source_file].fillit\n");
-	else
-	{
-		if (get_tetriminos(&f, argv[1]) == _ERROR_)
-			ft_putstr("Error\n");
-		else if (check_tetriminos(f.tetri) == _ERROR_)
-			ft_putstr("Error\n");
-		init_square(&f);
-//		display_list(f.tetri);
-	}
-	return (0);
+	while (t)
+		t = t->next;
+	total_sharp = t->index * 4;
+	size = 2;
+	while (size * size < total_sharp)
+		size++;
+	return (size);
+}
+
+void			init_square(t_fillit *f)
+{
+	f->size = minsize(f->tetri);
 }

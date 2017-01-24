@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/23 17:47:27 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/24 13:28:24 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_tetris	*last_maillon(t_tetris **begin)
 	{
 		*begin = ft_memalloc(sizeof(t_tetris));
 		(*begin)->next = NULL;
+		(*begin)->index = 0;
 		return (*begin);
 	}
 	else
@@ -28,6 +29,7 @@ t_tetris	*last_maillon(t_tetris **begin)
 		while (list->next)
 			list = list->next;
 		list->next = ft_memalloc(sizeof(t_tetris));
+		list->next->index = list->index + 1;
 		list = list->next;
 		list->next = NULL;
 	}
@@ -84,7 +86,6 @@ int				get_tetriminos(t_fillit *f, char *path)
 	}
 	if (i != 4)
 		return (_ERROR_);
-	display_list(f->tetri);
 	return (_SUCCESS_);
 }
 
