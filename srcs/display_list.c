@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:24:23 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/23 17:50:10 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/25 14:34:31 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,15 @@ void	display_list(t_tetris *list)
 		write(1, "\n", 1);
 		list = list->next;
 	}
+}
+
+void	display_array(char tab[26][26])
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (i < 26)
 }
 

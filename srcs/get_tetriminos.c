@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/24 13:28:24 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/01/25 12:26:11 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_tetris	*last_maillon(t_tetris **begin)
 	{
 		*begin = ft_memalloc(sizeof(t_tetris));
 		(*begin)->next = NULL;
-		(*begin)->index = 0;
+		(*begin)->index = 1;
 		return (*begin);
 	}
 	else

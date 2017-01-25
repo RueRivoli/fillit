@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:26:45 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/23 18:04:03 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/25 12:14:30 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ static int	check_valid_link(t_tetris *tetri)
 	{
 		if (get_coordinate(tetri) == _ERROR_)
 			return (_ERROR_);
-		tetri= tetri->next;
+		tetri = tetri->next;
 	}
 	return (_SUCCESS_);
 }

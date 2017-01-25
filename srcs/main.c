@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:07:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/24 13:42:47 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/01/25 12:34:36 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int				main(int argc, char **argv)
 			ft_putstr("Error\n");
 		else if (check_tetriminos(f.tetri) == _ERROR_)
 			ft_putstr("Error\n");
-		init_square(&f);
-//		display_list(f.tetri);
+		else
+			ft_putendl("Success");
+			init_square(&f);
+		display_list(f.tetri);
 	}
 	return (0);
 }
