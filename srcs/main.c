@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:07:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/25 12:34:36 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/25 15:36:56 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int				main(int argc, char **argv)
 			ft_putstr("Error\n");
 		else
 			ft_putendl("Success");
-			init_square(&f);
-		display_list(f.tetri);
+		init_square(&f);
+		//display_list(f.tetri);
+		display_array(f.array);
 	}
 	return (0);
 }
