@@ -6,12 +6,11 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:24:23 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/25 15:39:11 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/26 17:54:54 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
-#include <stdio.h>
 
 void	display_list(t_tetris *list)
 {
@@ -35,7 +34,7 @@ void	display_list(t_tetris *list)
 	}
 }
 
-void	display_array(char tab[26][26])
+void	display_square(char square[26][26])
 {
 	int i;
 	int j;
@@ -45,8 +44,38 @@ void	display_array(char tab[26][26])
 	{
 		j = 0;
 		while (j < 26)
-			ft_putchar(tab[i][j++]);
+			ft_putchar(square[i][j++]);
 		ft_putchar('\n');
 		i++;
+	}
+}
+
+void	display_coord(t_tetris *list)
+{
+	int i;
+
+	i = 0;
+	while (list)
+	{
+		ft_putstr("Piece numero : ");
+		ft_putnbr(list->index);
+		ft_putstr("\nCord_x : \t");
+		i = 0;
+		while (i < 4)
+		{
+			ft_putnbr(list->coord_x[i++]);
+			ft_putchar('\t');
+		}
+		ft_putstr("\n\n");
+
+		ft_putstr("Cord_y : \t");
+		i = 0;
+		while (i < 4)
+		{
+			ft_putnbr(list->coord_y[i++]);
+			ft_putchar('\t');
+		}
+		ft_putstr("\n\n");
+		list = list->next;
 	}
 }
