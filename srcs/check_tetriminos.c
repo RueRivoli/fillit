@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:26:45 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/25 12:14:30 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/26 17:57:20 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,14 @@ static int	check_valid_char(t_tetris *tetri)
 			while (++x < 4)
 			{
 				if (tetri->form[y][x] == '#')
+				{
 					nb_sharp++;
+					if (nb_sharp < 5)
+					{
+						tetri->coord_x[nb_sharp - 1] = x;
+						tetri->coord_y[nb_sharp - 1] = y;
+					}
+				}
 				else if (tetri->form[y][x] != '.')
 					return (_ERROR_);
 			}
