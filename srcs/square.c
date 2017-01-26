@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:16:02 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/25 15:36:16 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/26 17:30:15 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ void			init_square(t_fillit *f)
 	f->size = minsize(f->tetri);
 	i = -1;
 	while (++i < 26)
-		ft_memset(f->array[i], '.', 26);
+		ft_memset(f->square[i], '.', 26);
 }
