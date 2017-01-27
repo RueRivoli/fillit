@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/26 17:50:55 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/27 13:07:21 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct	s_fillit
 {
 	char		square[26][26];
 	int			size;
+	int			curr_x;
+	int			curr_y;
 	t_tetris	*tetri;
 }				t_fillit;
 
