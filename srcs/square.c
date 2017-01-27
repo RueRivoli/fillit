@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:16:02 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/27 13:10:56 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/27 14:16:47 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,22 @@ void			init_square(t_fillit *f)
 	i = -1;
 	while (++i < 26)
 		ft_memset(f->square[i], '.', 26);
+}
+
+int			match_in_square(t_fillit *fillit, t_tetris *tetri)
+{
+	int		cpt;
+	int		fx;
+	int		fy;
+
+	cpt = 1;
+	while (cpt < 4)
+	{
+		fx = (tetri->coord_x[cpt] - tetri->coord_x[0]) + fillit->curr_x;
+		fy = (tetri->coord_y[cpt] - tetri->coord_y[0]) + fillit->curr_y;
+		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size || fillit->square[fx][fy] != '.')
+			return (0);
+		cpt++;
+	}
+	return (1);
 }
