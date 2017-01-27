@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:16:02 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/26 17:30:15 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/27 13:10:56 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ static int		minsize(t_tetris *t)
 void			init_square(t_fillit *f)
 {
 	int i;
-
+	
+	f->curr_x = 0;
+	f->curr_y = 0;
 	f->size = minsize(f->tetri);
 	i = -1;
 	while (++i < 26)
