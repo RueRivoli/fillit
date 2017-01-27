@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/27 14:21:51 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/27 14:53:52 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ int		check_tetriminos(t_tetris *tetri);
 void	init_square(t_fillit *f);
 
 int		match_in_square(t_fillit *fillit, t_tetris *tetri);
+
+int		same_tetrim(t_tetris *tetri1, t_tetris *tetri2);
 
 #endif
