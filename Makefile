@@ -6,7 +6,7 @@
 #    By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 12:41:58 by cchameyr          #+#    #+#              #
-#    Updated: 2017/01/24 13:41:49 by cchameyr         ###   ########.fr        #
+#    Updated: 2017/01/27 14:56:51 by fgallois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ FILES =			main.c \
 				get_tetriminos.c \
 				display_list.c \
 				check_tetriminos.c \
-				square.c
+				square.c \
+				match.c
 
 SRCS =			$(addprefix srcs/, $(FILES))
 
