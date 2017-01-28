@@ -39,6 +39,8 @@ typedef struct	s_fillit
 
 int		get_tetriminos(t_fillit *f, char *path);
 
+void	display_error(void);
+
 void	display_list(t_tetris *list);
 
 void	display_square(char square[26][26]);
