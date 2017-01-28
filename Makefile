@@ -15,7 +15,7 @@ NAME =			fillit
 FILES =			main.c \
 				get_next_line.c \
 				get_tetriminos.c \
-				display_list.c \
+				display.c \
 				check_tetriminos.c \
 				square.c \
 				match.c
