@@ -12,6 +12,10 @@
 
 #include "../includes/include.h"
 
+void	display_error(void)
+{
+	ft_putstr("Error\n");
+}
 void	display_list(t_tetris *list)
 {
 	int i;
