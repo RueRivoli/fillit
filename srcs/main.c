@@ -21,9 +21,9 @@ int				main(int argc, char **argv)
 	else
 	{
 		if (get_tetriminos(&f, argv[1]) == _ERROR_)
-			ft_putstr("Error\n");
+			display_error();
 		else if (check_tetriminos(f.tetri) == _ERROR_)
-			ft_putstr("Error\n");
+			display_error();
 		else
 			ft_putendl("Success");
 		init_square(&f);
