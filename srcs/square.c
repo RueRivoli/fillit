@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:16:02 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/30 18:02:51 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:47:14 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			match_in_square(t_fillit *fillit, t_tetris *tetri)
 	{
 		fx = (tetri->coord_x[cpt] - tetri->coord_x[0]) + fillit->curr_x;
 		fy = (tetri->coord_y[cpt] - tetri->coord_y[0]) + fillit->curr_y;
-		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size || fillit->square[fx][fy] != '.')
+		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size || fillit->square[fy][fx] != '.')
 			return (0);
 		cpt++;
 	}
@@ -60,25 +60,21 @@ int			match_in_square(t_fillit *fillit, t_tetris *tetri)
 //Recherche un match a partir des x et y en parametre
 int		match_in_all(t_fillit *fillit, t_tetris *tetri, int curr_x, int curr_y)
 {
-	int x;
-	int y;
-
-	x = curr_x;
-	y = curr_y;
-	while (x < fillit->size && y < fillit->size)
+	while (curr_x < fillit->size && curr_y < fillit->size)
 	{
-		if (match_in_square(fillit, tetri))
+		if (match_in_square(fillit, tetri) == 1)
 		{
-			tetri->pos[0] = y;
-			tetri->pos[1] = x;
+			tetri->pos[0] = curr_y;
+			tetri->pos[1] = curr_x;
 			return (1);
 		}
-		x++;
-		if (x == fillit->size)
+		curr_x++;
+		if (curr_x == fillit->size)
 		{
-			x = 0;
-			y++;
+			curr_x = 0;
+			curr_y++;
 		}
 	}
 	return (0);
 }
+
