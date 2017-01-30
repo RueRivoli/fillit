@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:16:02 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/27 14:42:51 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:02:51 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,30 @@ int			match_in_square(t_fillit *fillit, t_tetris *tetri)
 		cpt++;
 	}
 	return (1);
+}
+
+//Recherche un match a partir des x et y en parametre
+int		match_in_all(t_fillit *fillit, t_tetris *tetri, int curr_x, int curr_y)
+{
+	int x;
+	int y;
+
+	x = curr_x;
+	y = curr_y;
+	while (x < fillit->size && y < fillit->size)
+	{
+		if (match_in_square(fillit, tetri))
+		{
+			tetri->pos[0] = y;
+			tetri->pos[1] = x;
+			return (1);
+		}
+		x++;
+		if (x == fillit->size)
+		{
+			x = 0;
+			y++;
+		}
+	}
+	return (0);
 }
