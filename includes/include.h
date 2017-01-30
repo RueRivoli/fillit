@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/30 18:04:01 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:31:01 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,9 @@ int		recursive(t_fillit *fillit, t_tetris *tetri);
 int		recursive_size(t_fillit *fillit, t_tetris *tetri);
 
 int		same_tetrim(t_tetris *tetri1, t_tetris *tetri2);
+
+int		fill(t_fillit *fillit, t_tetris *tetri, int x, int y);
+
+int		empty(t_fillit *fillit, t_tetris *tetri, int x, int y);
 
 #endif
