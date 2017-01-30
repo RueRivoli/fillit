@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/30 17:36:50 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:01:29 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ t_tetris	*last_maillon(t_tetris **begin)
 	}
 	ft_bzero((*begin)->coord_x, 4);
 	ft_bzero((*begin)->coord_y, 4);
+	ft_bzero((*begin)->pos, 2);
+	(*begin)->pos[0] = -1;
+	(*begin)->pos[1] = -1;
 	return (list);
 }
 
