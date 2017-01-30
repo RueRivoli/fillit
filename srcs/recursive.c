@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 14:24:09 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/30 18:04:50 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:47:59 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,26 @@ int		recursive(t_fillit *fillit, t_tetris *tetri)
 
 	x = fillit->curr_x;
 	y = fillit->curr_y;
-
 	if (tetri == NULL)
 		return (1);
 	else
 	{
 		while (x < fillit->size && y < fillit->size)
 		{
+			ft_putnbr(match_in_all(fillit, tetri, x, y));
 			if (match_in_all(fillit, tetri, x, y))
 			{
 				int a;
 				int b;
-
+				YOLO
 				a = tetri->pos[0];
 				b = tetri->pos[1];
-				fillit->square[a][b] = (char)tetri->index;
+				fill(fillit, tetri, a, b);
 				if (recursive(fillit, tetri->next))
 					return (1);
 				else
 				{
-					fillit->square[tetri->pos[0]][tetri->pos[1]] = '.';
+					empty(fillit, tetri, a, b);
 					a = -1;
 					b = -1;
 				}
