@@ -6,11 +6,12 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:07:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/30 18:37:41 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:19:10 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
+#include <stdio.h>
 
 int				main(int argc, char **argv)
 {
@@ -29,10 +30,11 @@ int				main(int argc, char **argv)
 		init_square(&f);
 		//display_list(f.tetri);
 			//display_coord(f.tetri);
-			ft_putchar('\n');
+			//ft_putchar('\n');
 		//display_square(f.square);
+		//printf("mis : %d\n", match_in_square(&f,f.tetri));
 		recursive_size(&f, f.tetri);
-		display_square(f.square);
+		display_field(&f);
 	}
 	return (0);
 }
