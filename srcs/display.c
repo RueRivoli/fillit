@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:24:23 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/26 17:54:54 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/31 17:49:28 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,22 @@ void	display_square(char square[26][26])
 		j = 0;
 		while (j < 26)
 			ft_putchar(square[i][j++]);
+		ft_putchar('\n');
+		i++;
+	}
+}
+
+void	display_field(t_fillit *fillit)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < fillit->size)
+	{
+		j = 0;
+		while (j < fillit->size)
+			ft_putchar(fillit->square[i][j++]);
 		ft_putchar('\n');
 		i++;
 	}
