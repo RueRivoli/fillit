@@ -6,10 +6,9 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:16:02 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/30 18:51:13 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:53:22 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/include.h"
 
@@ -21,7 +20,7 @@ static int		minsize(t_tetris *t)
 	while (t->next)
 		t = t->next;
 	total_sharp = t->index * 4;
-	size = 2;
+	size = 3;
 	while (size * size < total_sharp)
 		size++;
 	return (size);
@@ -39,7 +38,8 @@ void			init_square(t_fillit *f)
 		ft_memset(f->square[i], '.', 26);
 }
 
-int			match_in_square(t_fillit *fillit, t_tetris *tetri)
+//Recherche un match a la ligne y et la colonne x
+int			match_in_square(t_fillit *fillit, t_tetris *tetri, int x, int y)
 {
 	int		cpt;
 	int		fx;
@@ -47,9 +47,9 @@ int			match_in_square(t_fillit *fillit, t_tetris *tetri)
 
 	cpt = 1;
 	while (cpt < 4)
-	{
-		fx = (tetri->coord_x[cpt] - tetri->coord_x[0]) + fillit->curr_x;
-		fy = (tetri->coord_y[cpt] - tetri->coord_y[0]) + fillit->curr_y;
+	{	
+		fx = (tetri->coord_x[cpt] - tetri->coord_x[0]) + x;
+		fy = (tetri->coord_y[cpt] - tetri->coord_y[0]) + y;
 		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size || fillit->square[fy][fx] != '.')
 			return (0);
 		cpt++;
@@ -58,21 +58,21 @@ int			match_in_square(t_fillit *fillit, t_tetris *tetri)
 }
 
 //Recherche un match a partir des x et y en parametre
-int		match_in_all(t_fillit *fillit, t_tetris *tetri, int curr_x, int curr_y)
+int		match_in_all(t_fillit *fillit, t_tetris *tetri, int x, int y)
 {
-	while (curr_x < fillit->size && curr_y < fillit->size)
-	{
-		if (match_in_square(fillit, tetri) == 1)
+	while (x < fillit->size && y < fillit->size)
+	{	
+		if (match_in_square(fillit, tetri, x, y) == 1)
 		{
-			tetri->pos[0] = curr_y;
-			tetri->pos[1] = curr_x;
+			tetri->pos[0] = y;
+			tetri->pos[1] = x;
 			return (1);
 		}
-		curr_x++;
-		if (curr_x == fillit->size)
+		x++;
+		if (x == fillit->size)
 		{
-			curr_x = 0;
-			curr_y++;
+			x = 0;
+			y++;
 		}
 	}
 	return (0);
