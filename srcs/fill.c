@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:16:48 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/30 18:35:51 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:37:21 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int		fill(t_fillit *fillit,t_tetris *tetri, int x, int y)
 		fy = (tetri->coord_y[cpt] - tetri->coord_y[0]) + y;
 		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size)
 			return (0);
-		fillit->square[fy][fx] = (char)tetri->index;
-		cpt ++;
+		fillit->square[fy][fx] = (char)(tetri->index + 'A' - 1);
+		cpt++;
 	}
 	return (1);
 }
@@ -44,6 +44,8 @@ int		empty(t_fillit *fillit,t_tetris *tetri, int x, int y)
 		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size)
 			return (0);
 		fillit->square[fy][fx] = '.';
+		tetri->pos[0] = -1;
+		tetri->pos[1] = -1;
 		cpt ++;
 	}
 	return (1);
