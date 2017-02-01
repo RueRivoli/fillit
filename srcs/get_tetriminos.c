@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/01 13:19:23 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/01 15:24:06 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,16 @@ int				get_tetriminos(t_fillit *f, char *path)
 	char	*str;
 	int		fd;
 	int		i;
+	int ret;
 
 	if ((fd = open(path, O_RDONLY)) == -1)
 		return (_ERROR_);
 	f->tetri = NULL;
 	i = 0;
-	while (get_next_line(fd, &str))
+	while ((ret = get_next_line(fd, &str)))
 	{
+		if (ret == -1)
+			 display_error();
 		if (str[0] != 0 && ft_strlen(str) != 4)
 			return (_ERROR_);
 		if (create_chaine(&f->tetri, str) == _ERROR_)
