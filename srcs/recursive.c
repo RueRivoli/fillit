@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 14:24:09 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/31 18:46:28 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/01 13:11:59 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,5 @@ int		recursive(t_fillit *fillit, t_tetris *tetri)
 			}
 		}
 	}
-	return (0);
-}
-
-int		recursive_size(t_fillit *fillit, t_tetris *tetri)
-{
-	while (fillit->size <= 26 && recursive(fillit, tetri) == 0)
-		fillit->size++;
-	if (fillit->size <= 26)
-		return (1);
 	return (0);
 }
