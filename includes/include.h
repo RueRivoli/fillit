@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/01 14:59:42 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/01 15:56:57 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void		display_list(t_tetris *list);
 
 void		display_square(char square[26][26]);
 
-void		display_field(t_fillit *fillit);
+int			display_field(t_fillit *fillit);
 
 void		display_coord(t_tetris *list);
 
