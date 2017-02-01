@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/01 13:12:25 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/01 13:15:09 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_tetris
 	int					coord_x[4];
 	int					coord_y[4];
 	int					pos[2];
+	int					checked;
 	struct s_tetris		*next;
 }				t_tetris;
 

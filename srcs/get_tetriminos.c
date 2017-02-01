@@ -6,38 +6,41 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/31 18:21:46 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/01 13:19:23 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
-t_tetris	*last_maillon(t_tetris **begin)
+static t_tetris		*new_maillon(int index)
+{
+	t_tetris		*list;
+
+	list = ft_memalloc(sizeof(t_tetris));
+	list->next = NULL;
+	list->index = index + 1;
+	ft_bzero(list->coord_x, 4);
+	ft_bzero(list->coord_y, 4);
+	ft_bzero(list->pos, 2);
+	list->pos[0] = -1;
+	list->pos[1] = -1;
+	list->checked = 0;
+	return (list);
+}
+
+static t_tetris		*last_maillon(t_tetris **begin)
 {
 	t_tetris	*list;
 
 	list = *begin;
 	if (!list)
-	{
-		*begin = ft_memalloc(sizeof(t_tetris));
-		(*begin)->next = NULL;
-		(*begin)->index = 1;
-		return (*begin);
-	}
+		*begin = new_maillon(0);
 	else
 	{
 		while (list->next)
 			list = list->next;
-		list->next = ft_memalloc(sizeof(t_tetris));
-		list->next->index = list->index + 1;
-		list = list->next;
-		list->next = NULL;
+		list->next = new_maillon(list->index);
 	}
-	ft_bzero((*begin)->coord_x, 4);
-	ft_bzero((*begin)->coord_y, 4);
-	ft_bzero((*begin)->pos, 2);
-	(*begin)->pos[0] = -1;
-	(*begin)->pos[1] = -1;
 	return (list);
 }
 
