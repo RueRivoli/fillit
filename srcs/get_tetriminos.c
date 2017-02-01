@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/01 15:44:03 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:30:44 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static t_tetris		*new_maillon(int index)
 	list = ft_memalloc(sizeof(t_tetris));
 	list->next = NULL;
 	list->index = index + 1;
+	if (list->index > 26)
+		display_error();
 	ft_bzero(list->coord_x, 4);
 	ft_bzero(list->coord_y, 4);
 	ft_bzero(list->pos, 2);
