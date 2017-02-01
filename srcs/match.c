@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 14:32:57 by fgallois          #+#    #+#             */
-/*   Updated: 2017/02/01 15:48:15 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:22:07 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		same_tetrim(t_tetris *tetri1, t_tetris *tetri2)
 	int		gx;
 	int		gy;
 
-	cpt = 1;
+	cpt = 0;
 	while (cpt < 4)
 	{
 		fx = tetri1->coord_x[cpt] - tetri1->coord_x[0];
@@ -40,9 +40,9 @@ int			match_in_square(t_fillit *fillit, t_tetris *tetri, int x, int y)
 	int		fx;
 	int		fy;
 
-	cpt = 1;
+	cpt = 0;
 	while (cpt < 4)
-	{	
+	{
 		fx = (tetri->coord_x[cpt] - tetri->coord_x[0]) + x;
 		fy = (tetri->coord_y[cpt] - tetri->coord_y[0]) + y;
 		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size || fillit->square[fy][fx] != '.')
