@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:07:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/01 14:44:34 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/01 15:52:13 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int				main(int argc, char **argv)
 		init_square(&f);
 		while (recursive(f, f.tetri) == 0)
 			f.size++;
-		display_field(&f);
 	}
 	return (0);
 }
