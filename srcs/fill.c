@@ -6,13 +6,13 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:16:48 by fgallois          #+#    #+#             */
-/*   Updated: 2017/02/01 13:08:55 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/01 14:58:56 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
-int		fill(t_fillit *fillit,t_tetris *tetri, int x, int y)
+t_fillit	fill(t_fillit fillit,t_tetris *tetri, int x, int y)
 {
 	int		cpt;
 	int		fx;
@@ -22,10 +22,8 @@ int		fill(t_fillit *fillit,t_tetris *tetri, int x, int y)
 	{
 		fx = (tetri->coord_x[cpt] - tetri->coord_x[0]) + x;
 		fy = (tetri->coord_y[cpt] - tetri->coord_y[0]) + y;
-		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size)
-			return (0);
-		fillit->square[fy][fx] = (char)(tetri->index + 'A' - 1);
+		fillit.square[fy][fx] = (char)(tetri->index + 'A' - 1);
 		cpt++;
 	}
-	return (1);
+	return (fillit);
 }
