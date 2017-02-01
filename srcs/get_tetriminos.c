@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/01 15:24:06 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/01 15:26:49 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ static t_tetris		*last_maillon(t_tetris **begin)
 
 	list = *begin;
 	if (!list)
+	{
 		*begin = new_maillon(0);
+		return (*begin);
+	}
 	else
 	{
 		while (list->next)
