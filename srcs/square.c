@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:16:02 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/01 15:48:05 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/02/03 13:10:57 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int		minsize(t_tetris *t)
 void			init_square(t_fillit *f)
 {
 	int i;
-	
+
 	f->curr_x = 0;
 	f->curr_y = 0;
 	f->size = minsize(f->tetri);
@@ -37,5 +37,3 @@ void			init_square(t_fillit *f)
 	while (++i < 26)
 		ft_memset(f->square[i], '.', 26);
 }
-
-

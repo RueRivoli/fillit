@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:24:23 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/02 16:34:55 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/03 13:12:46 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ void	display_error(void)
 	ft_putstr("error\n");
 	exit(0);
 }
+
 void	display_list(t_tetris *list)
 {
 	int i;
 	int j;
-	
+
 	j = 0;
 	while (list)
 	{
@@ -91,7 +92,6 @@ void	display_coord(t_tetris *list)
 			ft_putchar('\t');
 		}
 		ft_putstr("\n\n");
-
 		ft_putstr("Cord_y : \t");
 		i = 0;
 		while (i < 4)

@@ -6,49 +6,13 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:26:45 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/01/31 18:22:05 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/03 15:43:33 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
-static int	check_valid_char(t_tetris *tetri)
-{
-	int		x;
-	int		y;
-	int		nb_sharp;
-
-	while (tetri)
-	{
-		nb_sharp = 0;
-		y = -1;
-		while (++y < 4)
-		{
-			x = -1;
-			while (++x < 4)
-			{
-				if (tetri->form[y][x] == '#')
-				{
-					nb_sharp++;
-					if (nb_sharp < 5)
-					{
-						tetri->coord_x[nb_sharp - 1] = x;
-						tetri->coord_y[nb_sharp - 1] = y;
-					}
-				}
-				else if (tetri->form[y][x] != '.')
-					return (_ERROR_);
-			}
-		}
-		if (nb_sharp != 4)
-			return (_ERROR_);
-		tetri = tetri->next;
-	}
-	return (_SUCCESS_);
-}
-
-
-static int	check_link(int lines[4], int column[4])
+static int		check_link(int lines[4], int column[4])
 {
 	int i;
 	int j;
@@ -64,7 +28,7 @@ static int	check_link(int lines[4], int column[4])
 			if ((i != j) && ((lines[i] == lines[j] &&
 						ft_abs(column[i] - column[j]) == 1) ||
 						(column[i] == column[j] &&
-						 ft_abs(lines[i] - lines[j]) == 1)))
+						ft_abs(lines[i] - lines[j]) == 1)))
 				cpt++;
 		}
 	}
@@ -74,8 +38,7 @@ static int	check_link(int lines[4], int column[4])
 		return (_ERROR_);
 }
 
-
-static	int	get_coordinate(t_tetris *tetri)
+static	int		get_coordinate(t_tetris *tetri)
 {
 	int lines[4];
 	int column[4];
@@ -86,7 +49,7 @@ static	int	get_coordinate(t_tetris *tetri)
 	cpt = 0;
 	y = -1;
 	while (++y < 4)
-	{ 
+	{
 		x = -1;
 		while (++x < 4)
 		{
@@ -103,7 +66,7 @@ static	int	get_coordinate(t_tetris *tetri)
 	return (_SUCCESS_);
 }
 
-static int	check_valid_link(t_tetris *tetri)
+static int		check_valid_link(t_tetris *tetri)
 {
 	while (tetri)
 	{
@@ -114,7 +77,7 @@ static int	check_valid_link(t_tetris *tetri)
 	return (_SUCCESS_);
 }
 
-int		check_tetriminos(t_tetris *tetri)
+int				check_tetriminos(t_tetris *tetri)
 {
 	if (check_valid_char(tetri) == _ERROR_)
 		return (_ERROR_);

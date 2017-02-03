@@ -6,13 +6,13 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 14:32:57 by fgallois          #+#    #+#             */
-/*   Updated: 2017/02/01 16:22:07 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/02/03 13:19:03 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
-int		same_tetrim(t_tetris *tetri1, t_tetris *tetri2)
+int			same_tetrim(t_tetris *tetri1, t_tetris *tetri2)
 {
 	int		cpt;
 	int		fx;
@@ -45,7 +45,8 @@ int			match_in_square(t_fillit *fillit, t_tetris *tetri, int x, int y)
 	{
 		fx = (tetri->coord_x[cpt] - tetri->coord_x[0]) + x;
 		fy = (tetri->coord_y[cpt] - tetri->coord_y[0]) + y;
-		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size || fillit->square[fy][fx] != '.')
+		if (fx < 0 || fy < 0 || fx >= fillit->size || fy >= fillit->size ||
+				fillit->square[fy][fx] != '.')
 			return (0);
 		cpt++;
 	}

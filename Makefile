@@ -6,7 +6,7 @@
 #    By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 12:41:58 by cchameyr          #+#    #+#              #
-#    Updated: 2017/01/30 18:28:50 by fgallois         ###   ########.fr        #
+#    Updated: 2017/02/03 15:45:49 by fgallois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ FILES =			main.c \
 				get_tetriminos.c \
 				display.c \
 				check_tetriminos.c \
+				check_valid_char.c \
 				square.c \
 				match.c \
 				recursive.c \
