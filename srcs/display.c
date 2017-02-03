@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:24:23 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/01 15:56:47 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/02/02 16:34:55 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	display_error(void)
 {
-	ft_putstr("Error\n");
+	ft_putstr("error\n");
 	exit(0);
 }
 void	display_list(t_tetris *list)
@@ -69,6 +69,8 @@ int		display_field(t_fillit *fillit)
 		ft_putchar('\n');
 		i++;
 	}
+	ft_putchar('\n');
+	sleep(1);
 	return (_SUCCESS_);
 }
 

@@ -6,17 +6,18 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:16:48 by fgallois          #+#    #+#             */
-/*   Updated: 2017/02/01 14:58:56 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/03 13:02:04 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
-t_fillit	fill(t_fillit fillit,t_tetris *tetri, int x, int y)
+t_fillit	fill(t_fillit fillit, t_tetris *tetri, int x, int y)
 {
 	int		cpt;
 	int		fx;
 	int		fy;
+
 	cpt = 0;
 	while (cpt < 4)
 	{
