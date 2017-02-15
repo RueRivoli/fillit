@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:07:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/15 13:09:18 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/15 15:24:02 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				main(int argc, char **argv)
 	t_fillit f;
 
 	if (argc != 2)
-		ft_putstr("usage :\t./fillit [-V --Visual] [source_file].fillit\n");
+		ft_putstr("usage :\t./fillit [source_file]\n");
 	else
 	{
 		f.tetri = NULL;

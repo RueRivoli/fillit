@@ -1,4 +1,0 @@
-usage: 
-./gen_pieces valid 10
-./gen_pieces invalid 10
-./gen_pieces wtf 10
