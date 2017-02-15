@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:24:23 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/03 13:12:46 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/15 13:00:31 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int		display_field(t_fillit *fillit)
 		i++;
 	}
 	ft_putchar('\n');
-	sleep(1);
 	return (_SUCCESS_);
 }
 
