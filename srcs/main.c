@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:07:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/03 15:15:03 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/15 13:09:18 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int				main(int argc, char **argv)
 		ft_putstr("usage :\t./fillit [-V --Visual] [source_file].fillit\n");
 	else
 	{
+		f.tetri = NULL;
 		if (get_tetriminos(&f, argv[1]) == _ERROR_)
 			display_error();
 		else if (check_tetriminos(f.tetri) == _ERROR_)
