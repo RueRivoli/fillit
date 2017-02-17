@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:16:02 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/15 15:04:07 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/17 17:45:16 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int		minsize(t_tetris *t)
 	while (t->next)
 		t = t->next;
 	total_sharp = t->index * 4;
-	size = 3;
+	size = 2;
 	while (size * size < total_sharp)
 		size++;
 	return (size);
