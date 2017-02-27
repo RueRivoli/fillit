@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/15 13:47:45 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/10/29 14:31:51 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/02/27 14:52:57 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void				ft_print_lstline(t_lstline *list)
 {
 	while (list)
 	{
-		ft_printf("%s\n", list->line);
+		ft_putstr(list->line);
 		list = list->next;
 	}
 }
