@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 12:22:04 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/15 14:44:09 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/27 12:53:51 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,22 @@ static int			create_chaine(t_tetris **begin, char *str)
 	return (_SUCCESS_);
 }
 
+static int			process_str(int *ret, char *str, t_fillit *f, int *i)
+{
+	if (*ret == -1)
+		display_error();
+	if (str[0] != 0 && ft_strlen(str) != 4)
+		return (_ERROR_);
+	if (create_chaine(&f->tetri, str) == _ERROR_)
+		return (_ERROR_);
+	if (*i == 4)
+		*i = 0;
+	else
+		(*i)++;
+	ft_memdel((void **)&str);
+	return (_SUCCESS_);
+}
+
 int					get_tetriminos(t_fillit *f, char *path)
 {
 	char	*str;
@@ -85,20 +101,17 @@ int					get_tetriminos(t_fillit *f, char *path)
 
 	if ((fd = open(path, O_RDONLY)) == -1)
 		return (_ERROR_);
+	f->tetri = NULL;
 	i = 0;
 	while ((ret = get_next_line(fd, &str)))
 	{
 		if (ret == -1)
 			display_error();
-		if (str[0] != 0 && ft_strlen(str) != 4)
+		if (!process_str(&ret, str, f, &i))
 			return (_ERROR_);
-		if (create_chaine(&f->tetri, str) == _ERROR_)
-			return (_ERROR_);
-		if (i == 4)
-			i = 0;
-		else
-			i++;
 	}
+	if (str)
+		ft_memdel((void **)&str);
 	if (i != 4)
 		return (_ERROR_);
 	close(fd);

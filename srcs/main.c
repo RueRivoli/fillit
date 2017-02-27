@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:07:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/27 11:58:58 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/02/27 12:55:40 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int				main(int argc, char **argv)
 		f.tetri = NULL;
 		if (get_tetriminos(&f, argv[1]) == _ERROR_)
 			display_error();
-		else if (check_tetriminos(f.tetri) == _ERROR_)
+		if (check_tetriminos(f.tetri) == _ERROR_) // place else here
 			display_error();
 		init_square(&f);
 		ret = 0;
