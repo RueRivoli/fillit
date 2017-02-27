@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/27 11:59:49 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/02/27 13:25:00 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ t_fillit		*fill(t_fillit *fillit, t_tetris *tetri, int x, int y);
 
 int				return_false(t_fillit *f);
 int				return_true(t_fillit *f);
+int				return_display(t_fillit *f);
 
 #endif

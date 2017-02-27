@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 14:24:09 by fgallois          #+#    #+#             */
-/*   Updated: 2017/02/27 12:00:27 by cchameyr         ###   ########.fr       */
+/*   Updated: 2017/02/27 13:25:08 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void		init_checked_tetri(t_tetris *tetri)
 int				recursive(t_fillit *f, t_tetris *tet)
 {
 	if (tet == NULL)
-		return (display_field(f));
+		return (return_display(f));
 	tet->checked = 1;
 	f->curr_y = -1;
 	while (++f->curr_y < f->size)
