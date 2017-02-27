@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:14:48 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/15 12:57:41 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/27 11:59:49 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,13 @@ void			init_square(t_fillit *f);
 int				match_in_square(t_fillit *fillit,
 		t_tetris *tetri, int x, int y);
 
-int				recursive(t_fillit fillit, t_tetris *tetri);
+int				recursive(t_fillit *fillit, t_tetris *tet);
 
 int				same_tetrim(t_tetris *tetri1, t_tetris *tetri2);
 
-t_fillit		fill(t_fillit fillit, t_tetris *tetri, int x, int y);
+t_fillit		*fill(t_fillit *fillit, t_tetris *tetri, int x, int y);
+
+int				return_false(t_fillit *f);
+int				return_true(t_fillit *f);
 
 #endif

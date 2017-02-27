@@ -6,16 +6,17 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 13:07:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2017/02/15 15:24:02 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/27 11:58:58 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
-#include <stdio.h>
 
 int				main(int argc, char **argv)
 {
-	t_fillit f;
+	t_fillit	f;
+	t_fillit	*e;
+	int			ret;
 
 	if (argc != 2)
 		ft_putstr("usage :\t./fillit [source_file]\n");
@@ -27,8 +28,14 @@ int				main(int argc, char **argv)
 		else if (check_tetriminos(f.tetri) == _ERROR_)
 			display_error();
 		init_square(&f);
-		while (recursive(f, f.tetri) == 0)
+		ret = 0;
+		while (ret == 0)
+		{
+			e = (t_fillit *)ft_memalloc(sizeof(t_fillit));
+			e = ft_memcpy(e, &f, sizeof(t_fillit));
+			ret = recursive(e, e->tetri);
 			f.size++;
+		}
 	}
 	return (0);
 }

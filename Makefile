@@ -6,7 +6,7 @@
 #    By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 12:41:58 by cchameyr          #+#    #+#              #
-#    Updated: 2017/02/15 13:23:05 by fgallois         ###   ########.fr        #
+#    Updated: 2017/02/27 11:50:14 by cchameyr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ FILES =			main.c \
 				square.c \
 				match.c \
 				recursive.c \
-				fill.c
+				fill.c \
+				return_mode.c
 
 SRCS =			$(addprefix srcs/, $(FILES))
 

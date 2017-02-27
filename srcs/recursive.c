@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 14:24:09 by fgallois          #+#    #+#             */
-/*   Updated: 2017/02/15 14:54:01 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/27 12:00:27 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,30 +38,30 @@ static void		init_checked_tetri(t_tetris *tetri)
 	}
 }
 
-int				recursive(t_fillit f, t_tetris *tetri)
+int				recursive(t_fillit *f, t_tetris *tet)
 {
-	if (tetri == NULL)
-		return (display_field(&f));
-	tetri->checked = 1;
-	f.curr_y = -1;
-	while (++f.curr_y < f.size)
+	if (tet == NULL)
+		return (display_field(f));
+	tet->checked = 1;
+	f->curr_y = -1;
+	while (++f->curr_y < f->size)
 	{
-		f.curr_x = -1;
-		while (++f.curr_x < f.size)
+		f->curr_x = -1;
+		while (++f->curr_x < f->size)
 		{
-			if (match_in_square(&f, tetri, f.curr_x, f.curr_y))
+			if (match_in_square(f, tet, f->curr_x, f->curr_y))
 			{
-				if (recursive(fill(f, tetri, f.curr_x, f.curr_y), tetri->next))
-					return (_SUCCESS_);
+				if (recursive(fill(f, tet, f->curr_x, f->curr_y), tet->next))
+					return (return_true(f));
 				else
 				{
-					if (check_checked_tetri(tetri))
-						return (_ERROR_);
+					if (check_checked_tetri(tet))
+						return (return_false(f));
 					else
-						init_checked_tetri(tetri);
+						init_checked_tetri(tet);
 				}
 			}
 		}
 	}
-	return (_ERROR_);
+	return (return_false(f));
 }
